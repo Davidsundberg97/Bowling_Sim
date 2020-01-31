@@ -676,8 +676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc6fa55efb9e8842a92a1efa6ad2b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam1: {fileID: 963194227}
-  cam2: {fileID: 208083179}
+  BallCamera: {fileID: 963194227}
+  SideCamera: {fileID: 208083179}
   controller: {fileID: 2142979335}
   Force: 2
   Gravity: -9.82
