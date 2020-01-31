@@ -681,7 +681,8 @@ MonoBehaviour:
   controller: {fileID: 2142979335}
   Force: 2
   Gravity: -9.82
-  Camera: {fileID: 963194228}
+  mass: 0
+  rb: {fileID: 2142979336}
 --- !u!143 &2142979335
 CharacterController:
   m_ObjectHideFlags: 0

@@ -16,11 +16,12 @@ public class Bowling_Ball : MonoBehaviour
 
     public float Force = 5f;
     public float Gravity = -9.82f;
+    public float mass;
 
     //used to check if the simulation should start
     private bool holdingBall = true;
 
-    public Transform Camera;
+    public Rigidbody rb;
 
     Vector3 Velocity;
     // Start is called before the first frame update
@@ -28,7 +29,11 @@ public class Bowling_Ball : MonoBehaviour
     {
         BallCamera.enabled = true;
         SideCamera.enabled = false;
-    
+
+        //Enable changing the mass
+        rb = GetComponent<Rigidbody>();
+        rb.mass = mass;
+
     }
 
     // Update is called once per frame
