@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bowling_Ball : MonoBehaviour
 {
+
+    public float hej = 5f;
     // Start is called before the first frame update
     void Start()
     {
