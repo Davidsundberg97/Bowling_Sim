@@ -7,6 +7,7 @@ using UnityEngine;
 public class Bowling_Ball : MonoBehaviour
 {
 
+
     //Camera
     public Camera BallCamera;
     public Camera SideCamera;
@@ -22,6 +23,7 @@ public class Bowling_Ball : MonoBehaviour
     public float Gravity = -9.82f;
     public float mass;
     private float Friction;
+    private float radius = 0.105f;
 
     //Get the friction from the floor
     private static float Fric_cof;
@@ -32,6 +34,8 @@ public class Bowling_Ball : MonoBehaviour
     public Rigidbody rb;
 
     Vector3 Velocity;
+
+    Vector3 Rotation;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +81,15 @@ public class Bowling_Ball : MonoBehaviour
                // Debug.Log(Force);
                 Vector3 move = transform.forward * Force; // add friction here
                 controller.Move(move * Time.deltaTime);
+
+                Rotation.x += radius * 2;
+
+                transform.Rotate(Rotation);
+
+
+
+
+
 
                 //Debug.Log(move * Time.deltaTime);
             }
