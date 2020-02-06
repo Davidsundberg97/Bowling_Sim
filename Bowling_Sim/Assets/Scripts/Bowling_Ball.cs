@@ -58,13 +58,16 @@ public class Bowling_Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         //Check if grounded
         isGrounded = Physics.CheckSphere(Groundcheck.position, groundDistance, groundMask);
 
-        //Debug.Log(isGrounded);
+        Debug.Log(isGrounded);
+        //Make it so that you have to press Left mousebutton to start.
+        if (Input.GetMouseButtonDown(0))
+        {
+            holdingBall = false;
+        }
 
-        //startar Simulationen, holdingBall variabeln sätts till false i en funktion längst ner i koden
         if(holdingBall == false)
         {
             //Gravity
@@ -75,9 +78,10 @@ public class Bowling_Ball : MonoBehaviour
             {
                 //Force
                 Force = Force + Friction * 0.01f; //test to see if the deacceleration works (It does)
-                Debug.Log(Force);
-                Vector3 move = transform.forward * Force; // add friction here
-                controller.Move(move * Time.deltaTime);
+                                                  // Debug.Log(Force);
+                transform.Translate(0, 0, Force * Time.deltaTime, Space.World);
+               // Vector3 move = transform.forward * Force; // add friction here
+               //controller.Move(move * Time.deltaTime);
 
                 Rotation.x += radius * 2;
 
@@ -101,10 +105,10 @@ public class Bowling_Ball : MonoBehaviour
             }
 
             //v = v0 - Fric_cof * g * t;
-
+        
 
             //Force
-
+            
 
             //force
 
@@ -122,17 +126,7 @@ public class Bowling_Ball : MonoBehaviour
             SideCamera.enabled = !SideCamera.enabled;
         }
 
+    }
 
-//funktioner som tillhör SettingsEditor
-// Eventuellt lägga in i eget script?
-    }
-    //forceSlider
-    public void AdjustForce(float newForce){
-      Force = newForce;
-    }
-    //startButton
-    public void StartSimulation(bool Start){
-      holdingBall = false;
 
-    }
 }
