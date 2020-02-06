@@ -17,6 +17,10 @@ public class Bowling_Ball : MonoBehaviour
     public float Force = 5f;
     public float Gravity = -9.82f;
     public float mass;
+    private double Friction;
+
+    //Get the friction from the floor
+    private static double Fric_cof;
 
     //used to check if the simulation should start
     private bool holdingBall = true;
@@ -34,11 +38,19 @@ public class Bowling_Ball : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.mass = mass;
 
+        //Friction
+        Fric_cof = Floor_Script.Friction;
+         Debug.Log(Fric_cof);
+
+        //Calculate friction
+        Friction = mass * Gravity * Fric_cof;
+        Debug.Log(Friction);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Make it so that you have to press Left mousebutton to start.
         if (Input.GetMouseButtonDown(0))
         {
             holdingBall = false;
@@ -50,10 +62,14 @@ public class Bowling_Ball : MonoBehaviour
             Velocity.y += Gravity * Time.deltaTime;
             controller.Move(Velocity * Time.deltaTime);
 
+        
+
+
+
 
             //Force
            
-            Vector3 move = transform.forward * Force;
+            Vector3 move = transform.forward * Force; // add friction here
             controller.Move(move * Time.deltaTime);
 
 
