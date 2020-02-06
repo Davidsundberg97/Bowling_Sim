@@ -17,10 +17,10 @@ public class Bowling_Ball : MonoBehaviour
     public float Force = 5f;
     public float Gravity = -9.82f;
     public float mass;
-    private double Friction;
+    private float Friction;
 
     //Get the friction from the floor
-    private static double Fric_cof;
+    private static float Fric_cof;
 
     //used to check if the simulation should start
     private bool holdingBall = true;
@@ -62,15 +62,20 @@ public class Bowling_Ball : MonoBehaviour
             Velocity.y += Gravity * Time.deltaTime;
             controller.Move(Velocity * Time.deltaTime);
 
+
+
+            //v = v0 - Fric_cof * g * t;
         
 
-
-
-
             //Force
-           
+            Force = Force + Friction*0.01f; //test to see if the deacceleration works (It does)
+            Debug.Log(Force);
             Vector3 move = transform.forward * Force; // add friction here
             controller.Move(move * Time.deltaTime);
+
+            Debug.Log(move * Time.deltaTime);
+
+            //force
 
 
         }
