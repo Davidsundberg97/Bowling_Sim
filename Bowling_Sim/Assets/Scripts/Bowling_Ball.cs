@@ -61,12 +61,8 @@ public class Bowling_Ball : MonoBehaviour
         //Check if grounded
         isGrounded = Physics.CheckSphere(Groundcheck.position, groundDistance, groundMask);
 
-        Debug.Log(isGrounded);
+        //Debug.Log(isGrounded);
         //Make it so that you have to press Left mousebutton to start.
-        if (Input.GetMouseButtonDown(0))
-        {
-            holdingBall = false;
-        }
 
         if(holdingBall == false)
         {
@@ -74,7 +70,7 @@ public class Bowling_Ball : MonoBehaviour
             Velocity.y += Gravity * Time.deltaTime;
             controller.Move(Velocity * Time.deltaTime);
 
-            if (isGrounded)
+            if (isGrounded && Force > 0)
             {
                 //Force
                 Force = Force + Friction * 0.01f; //test to see if the deacceleration works (It does)
@@ -98,17 +94,17 @@ public class Bowling_Ball : MonoBehaviour
             {
                 //Force = Force + Friction * 0.01f; //test to see if the deacceleration works (It does)
                 //Debug.Log(Force);
-                Vector3 move = transform.forward * Force; // add friction here
-                controller.Move(move * Time.deltaTime);
+
+                transform.Translate(0, 0, Force * Time.deltaTime, Space.World);
 
                 //Debug.Log(move * Time.deltaTime);
             }
 
             //v = v0 - Fric_cof * g * t;
-        
+
 
             //Force
-            
+
 
             //force
 
@@ -127,6 +123,12 @@ public class Bowling_Ball : MonoBehaviour
         }
 
     }
-
+//Funktioner som hanterar Settingsmenyn
+    public void AdjustForce(float newForce){
+      Force = newForce;
+    }
+    public void StartSimulation(bool Start){
+      holdingBall = Start;
+    }
 
 }
