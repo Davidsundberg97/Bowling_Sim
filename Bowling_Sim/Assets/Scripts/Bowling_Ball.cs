@@ -62,13 +62,13 @@ public class Bowling_Ball : MonoBehaviour
             Velocity.y += Gravity * Time.deltaTime;
             controller.Move(Velocity * Time.deltaTime);
 
-        
+
 
 
 
 
             //Force
-           
+
             Vector3 move = transform.forward * Force; // add friction here
             controller.Move(move * Time.deltaTime);
 
@@ -88,5 +88,8 @@ public class Bowling_Ball : MonoBehaviour
 
     }
 
+    public void AdjustForce(float newForce){
+      Force = newForce;
+    }
 
 }
