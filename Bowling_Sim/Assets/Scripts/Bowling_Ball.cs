@@ -13,6 +13,10 @@ public class Bowling_Ball : MonoBehaviour
 
 
     public CharacterController controller;
+    public Transform Groundcheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+    bool isGrounded;
 
     public float Force = 5f;
     public float Gravity = -9.82f;
@@ -50,6 +54,10 @@ public class Bowling_Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Check if grounded
+        isGrounded = Physics.CheckSphere(Groundcheck.position, groundDistance, groundMask);
+
+        Debug.Log(isGrounded);
         //Make it so that you have to press Left mousebutton to start.
         if (Input.GetMouseButtonDown(0))
         {
@@ -62,18 +70,31 @@ public class Bowling_Ball : MonoBehaviour
             Velocity.y += Gravity * Time.deltaTime;
             controller.Move(Velocity * Time.deltaTime);
 
+            if (isGrounded)
+            {
+                //Force
+                Force = Force + Friction * 0.01f; //test to see if the deacceleration works (It does)
+               // Debug.Log(Force);
+                Vector3 move = transform.forward * Force; // add friction here
+                controller.Move(move * Time.deltaTime);
 
+                //Debug.Log(move * Time.deltaTime);
+            }
+            else
+            {
+                //Force = Force + Friction * 0.01f; //test to see if the deacceleration works (It does)
+                //Debug.Log(Force);
+                Vector3 move = transform.forward * Force; // add friction here
+                controller.Move(move * Time.deltaTime);
+
+                //Debug.Log(move * Time.deltaTime);
+            }
 
             //v = v0 - Fric_cof * g * t;
         
 
             //Force
-            Force = Force + Friction*0.01f; //test to see if the deacceleration works (It does)
-            Debug.Log(Force);
-            Vector3 move = transform.forward * Force; // add friction here
-            controller.Move(move * Time.deltaTime);
-
-            Debug.Log(move * Time.deltaTime);
+            
 
             //force
 
