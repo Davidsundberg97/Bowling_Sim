@@ -36,6 +36,10 @@ public class Bowling_Ball : MonoBehaviour
     Vector3 Velocity;
 
     Vector3 Rotation;
+
+    public static float w = 0f;
+    public static float alpha = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +57,9 @@ public class Bowling_Ball : MonoBehaviour
         //Calculate friction
         Friction = mass * Gravity * Fric_cof;
         Debug.Log(Friction);
+
+        //Calculate alpha
+        alpha = (5 / 2) * (Fric_cof * -Gravity) / radius;
     }
 
     // Update is called once per frame
@@ -74,14 +81,23 @@ public class Bowling_Ball : MonoBehaviour
             {
                 //Force
                 Force = Force + Friction * 0.01f; //test to see if the deacceleration works (It does)
-                                                  // Debug.Log(Force);
+                // Debug.Log(Force);
+                // Moves the ball on z-axis
                 transform.Translate(0, 0, Force * Time.deltaTime, Space.World);
-               // Vector3 move = transform.forward * Force; // add friction here
-               //controller.Move(move * Time.deltaTime);
 
-                Rotation.x += radius * 2;
-
+                //Rotates the ball around the x axis
+                w = w + alpha * Time.deltaTime;
+                Rotation.x = w;
                 transform.Rotate(Rotation);
+
+
+                
+
+
+
+                //OTHER WAY TO MOVE THE BALL (ROTATION MESS IT UP)//
+                // Vector3 move = transform.forward * Force; // add friction here
+                //controller.Move(move * Time.deltaTime);
 
 
 
