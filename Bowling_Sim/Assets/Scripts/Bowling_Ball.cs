@@ -63,7 +63,7 @@ public class Bowling_Ball : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Check if grounded
         isGrounded = Physics.CheckSphere(Groundcheck.position, groundDistance, groundMask);
@@ -74,8 +74,9 @@ public class Bowling_Ball : MonoBehaviour
         if(holdingBall == false)
         {
             //Gravity
-            Velocity.y += Gravity * Time.deltaTime;
-            controller.Move(Velocity * Time.deltaTime);
+            Velocity.y += Gravity * Time.fixedDeltaTime;
+            controller.Move(Velocity * Time.fixedDeltaTime);
+
 
             if (isGrounded && Force > 0)
             {
@@ -83,10 +84,10 @@ public class Bowling_Ball : MonoBehaviour
                 Force = Force + Friction * 0.01f; //test to see if the deacceleration works (It does)
                 // Debug.Log(Force);
                 // Moves the ball on z-axis
-                transform.Translate(0, 0, Force * Time.deltaTime, Space.World);
+                transform.Translate(0, 0, Force * Time.fixedDeltaTime, Space.World);
 
                 //Rotates the ball around the x axis
-                w = w + alpha * Time.deltaTime;
+                w = w + alpha * Time.fixedDeltaTime;
                 Rotation.x = w;
                 transform.Rotate(Rotation);
 
@@ -111,7 +112,7 @@ public class Bowling_Ball : MonoBehaviour
                 //Force = Force + Friction * 0.01f; //test to see if the deacceleration works (It does)
                 //Debug.Log(Force);
 
-                transform.Translate(0, 0, Force * Time.deltaTime, Space.World);
+                transform.Translate(0, 0, Force * Time.fixedDeltaTime, Space.World);
 
                 //Debug.Log(move * Time.deltaTime);
             }
