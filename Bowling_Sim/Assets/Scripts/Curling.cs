@@ -17,9 +17,9 @@ public class Curling : MonoBehaviour
     public LayerMask groundMask;
     bool isGrounded;
 
-    public float Force = 10f;
+    public float Force = 10f; //initial force
     public float Gravity = -9.82f;
-    public float mass = 8f;
+    public float mass = 19.96f; //Kg
     private float Friction;
     private float counter = 0;
     private float radius = 0.105f;
@@ -79,14 +79,14 @@ public class Curling : MonoBehaviour
 
 
         //counter = integer, timestep*50 = 1s, 5= 5s
-        if (counter > Time_step * 50 * 5)
+        if (counter > Time_step * 50)
         {
             Force = 0;
         }
 
-        
-        
 
+
+        Debug.Log(counter);
 
      
 
@@ -98,7 +98,7 @@ public class Curling : MonoBehaviour
         if (holdingBall == false)
         {
 
-            counter = counter + 1;
+            counter = counter + Time_step;
 
             //EULER//
             a = (1 / mass) * (Force - v * Fric_cof);
@@ -107,14 +107,14 @@ public class Curling : MonoBehaviour
 
             p = p + Time_step * v;
 
-            if (a < 0.00001)
+            if (a < 0.001)
             {
                 a = 0;
             }
 
 
 
-            Debug.Log(a);
+            //Debug.Log(a);
 
 
             //Force
