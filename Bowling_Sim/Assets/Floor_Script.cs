@@ -5,7 +5,7 @@ using UnityEngine;
 public class Floor_Script : MonoBehaviour
 {
 
-    public static float Friction = 0.12f;
+    public static float Friction = 0.02f;
     // Start is called before the first frame update
     void Start()
     {
