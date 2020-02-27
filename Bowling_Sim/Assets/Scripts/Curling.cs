@@ -18,7 +18,7 @@ public class Curling : MonoBehaviour
     public LayerMask groundMask;
     bool isGrounded;
 
-    public static float Force = 20f; //initial force
+    public static float Force = 28f; //initial force
     public float Gravity =  9.82f;
     public float mass = 20f; //Kg
     private float Friction;
@@ -26,15 +26,15 @@ public class Curling : MonoBehaviour
     private float radius = 0.105f;
 
     private float Time_step = 0.02f;
-    private float ax;
-    private float ay;
-    private float vx;
-    private float vy;
-    private float px;
-    private float py;
+    private float ax = 0.00000f;
+    private float ay = 0.0f;
+    private float vx = 0.0f;
+    private float vy = 0.0f;
+    private float px=0.0f;
+    private float py = 0.0f;
     private float v = 0.0f;
     private float p = 0.0f;
-    public static float inAngle = 0*5*0.0174532925f;
+    private static float inAngle = 0*5*0.0174532925f;
 
 
 
@@ -45,12 +45,12 @@ public class Curling : MonoBehaviour
    private float  anglex = Mathf.Cos(inAngle);
     private float angley = Mathf.Sin(inAngle);
 
-    private float frictionx;
-            private float frictiony;
+    private float frictionx ;
+    private float frictiony;
 
 
     //Get the friction from the floor
-    private static float Fric_cof;
+    private static float Fric_cof = 0.02f;
 
     //used to check if the simulation should start
     private bool holdingBall = true;
@@ -74,8 +74,8 @@ public class Curling : MonoBehaviour
         rb.mass = mass;
 
         //Friction
-        Fric_cof = Floor_Script.Friction;
-        Debug.Log(Fric_cof);
+        //Fric_cof = Floor_Script.Friction;
+        //Debug.Log(Fric_cof);
 
         
 
@@ -106,14 +106,21 @@ public class Curling : MonoBehaviour
         }
 
 
-        Debug.Log(px);
-
-     
 
 
 
 
-     
+        if (Input.GetKey(KeyCode.B))
+        {
+            Fric_cof = 0.01f;
+        }
+        else
+        {
+            Fric_cof = 0.02f;
+        }
+
+
+
 
         if (holdingBall == false)
         {
@@ -123,13 +130,16 @@ public class Curling : MonoBehaviour
            frictionx = anglex * (mass * Gravity * Fric_cof);
             frictiony = angley * (mass * Gravity * Fric_cof);
             counter = counter + Time_step;
-            
+         
+
             //EULER//
             //a = (1 / mass) * (Force - Mathf.Abs(mass * Gravity * Fric_cof));
 
 
-            ax = (1 / mass) * (iforcex - frictionx);
+            ax = (1 / mass) * (iforcex + frictionx);
             ay = (1 / mass) * (iforcey - frictiony);
+            Debug.Log(((ax)));
+            
 
             vx = vx + Time_step * ax;
             vy = vy + Time_step * ay;
@@ -141,6 +151,7 @@ public class Curling : MonoBehaviour
           
 
             px = px + Time_step * vx;
+            //Debug.Log(px);
             py = py + Time_step * vy;
 
           
@@ -182,10 +193,9 @@ public class Curling : MonoBehaviour
             SideCamera.enabled = !SideCamera.enabled;
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            //Make brush animation (lower friction coefficient)
-        }
+     
+      
+
 
     }
     //Funktioner som hanterar Settingsmenyn
