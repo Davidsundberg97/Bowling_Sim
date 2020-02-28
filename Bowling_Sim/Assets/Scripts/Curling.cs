@@ -34,6 +34,7 @@ public class Curling : MonoBehaviour
     private float py = 0.0f;
     private float v = 0.0f;
     private float p = 0.0f;
+    public float speed_check = 0.0f;
     private static float inAngle = 0*5*0.0174532925f;
 
 
@@ -53,9 +54,9 @@ public class Curling : MonoBehaviour
     private static float Fric_cof = 0.02f;
 
     //used to check if the simulation should start
-    private bool holdingBall = true;
+    private static bool holdingBall = true;
 
-    public Rigidbody rb;
+ 
 
     Vector3 Velocity;
 
@@ -69,9 +70,6 @@ public class Curling : MonoBehaviour
         BallCamera.enabled = true;
         SideCamera.enabled = false;
 
-        //Enable changing the mass
-        rb = GetComponent<Rigidbody>();
-        rb.mass = mass;
 
         //Friction
         //Fric_cof = Floor_Script.Friction;
@@ -138,11 +136,14 @@ public class Curling : MonoBehaviour
 
             ax = (1 / mass) * (iforcex + frictionx);
             ay = (1 / mass) * (iforcey - frictiony);
-            Debug.Log(((ax)));
+            //Debug.Log(((ax)));
             
 
             vx = vx + Time_step * ax;
             vy = vy + Time_step * ay;
+
+            speed_check = vx;
+            Debug.Log(((vx)));
 
             if (vx < 0){
                 vx = 0;

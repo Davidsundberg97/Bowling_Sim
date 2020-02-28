@@ -30,8 +30,7 @@ public class Bowling_Ball : MonoBehaviour
 
     //used to check if the simulation should start
     private bool holdingBall = true;
-
-    public Rigidbody rb;
+    
 
     Vector3 Velocity;
 
@@ -46,10 +45,7 @@ public class Bowling_Ball : MonoBehaviour
         BallCamera.enabled = true;
         SideCamera.enabled = false;
 
-        //Enable changing the mass
-        rb = GetComponent<Rigidbody>();
-        rb.mass = mass;
-
+       
         //Friction
         Fric_cof = Floor_Script.Friction;
          Debug.Log(Fric_cof);

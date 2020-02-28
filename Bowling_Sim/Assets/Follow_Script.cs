@@ -7,6 +7,7 @@ public class Follow_Script : MonoBehaviour
     public GameObject Ball;
     Vector3 offset;
     // Start is called before the first frame update
+    
     void Start()
     {
         offset = transform.position - Ball.transform.position;
