@@ -12,8 +12,6 @@ public class Curling : MonoBehaviour
 
 
     //Camera
-    public Camera BallCamera;
-    public Camera SideCamera;
 
 
     public CharacterController controller;
@@ -73,8 +71,7 @@ public class Curling : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BallCamera.enabled = true;
-        SideCamera.enabled = false;
+  
 
         
 
@@ -93,9 +90,6 @@ public class Curling : MonoBehaviour
         //Check if grounded
         isGrounded = Physics.CheckSphere(Groundcheck.position, groundDistance, groundMask);
 
-        //Debug.Log(isGrounded);
-        //Make it so that you have to press Left mousebutton to start.
-
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -109,7 +103,6 @@ public class Curling : MonoBehaviour
         StartCoroutine(StartStone());
 
 
-        //counter = integer, timestep*50 = 1s, 5= 5s
         if (px>2)
         {
             iforcex = 0;
@@ -160,7 +153,7 @@ public class Curling : MonoBehaviour
             vy = vy + Time_step * ay;
 
             speed_check = vx;
-            Debug.Log(((speed_check)));
+           // Debug.Log(((speed_check)));
 
             if (vx < 0){
                 vx = 0;
@@ -176,11 +169,7 @@ public class Curling : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            BallCamera.enabled = !BallCamera.enabled;
-            SideCamera.enabled = !SideCamera.enabled;
-        }
+      
 
     }
 
