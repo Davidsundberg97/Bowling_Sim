@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class Curling : MonoBehaviour
 {
 
+    public GameObject StonePrefab;
+    public float respawn = 1.0f;
+    public bool Spawner = false;
+
 
     //Camera
     public Camera BallCamera;
@@ -14,6 +18,7 @@ public class Curling : MonoBehaviour
 
     public CharacterController controller;
     public Transform Groundcheck;
+    public GameObject Brush;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
@@ -32,8 +37,6 @@ public class Curling : MonoBehaviour
     private float vy = 0.0f;
     private float px=0.0f;
     private float py = 0.0f;
-    private float v = 0.0f;
-    private float p = 0.0f;
     public float speed_check = 0.0f;
     private static float inAngle = 0*5*0.0174532925f;
 
@@ -56,7 +59,10 @@ public class Curling : MonoBehaviour
     //used to check if the simulation should start
     private static bool holdingBall = true;
 
- 
+    GameObject referenceObject;
+    Follow_Script referenceScript;
+
+
 
     Vector3 Velocity;
 
@@ -69,11 +75,6 @@ public class Curling : MonoBehaviour
     {
         BallCamera.enabled = true;
         SideCamera.enabled = false;
-
-
-        //Friction
-        //Fric_cof = Floor_Script.Friction;
-        //Debug.Log(Fric_cof);
 
         
 
@@ -96,12 +97,29 @@ public class Curling : MonoBehaviour
         //Make it so that you have to press Left mousebutton to start.
 
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+
+            Spawner = true;
+        }
+        else
+        {
+            Spawner = false;
+        }
+        StartCoroutine(StartStone());
+
+
         //counter = integer, timestep*50 = 1s, 5= 5s
         if (px>2)
         {
             iforcex = 0;
             iforcey = 0;
         }
+
+        //if (vx==0&& px > 2)
+        //{
+        //    Destroy(this.gameObject);
+        //}
 
 
 
@@ -131,7 +149,6 @@ public class Curling : MonoBehaviour
          
 
             //EULER//
-            //a = (1 / mass) * (Force - Mathf.Abs(mass * Gravity * Fric_cof));
 
 
             ax = (1 / mass) * (iforcex + frictionx);
@@ -143,50 +160,21 @@ public class Curling : MonoBehaviour
             vy = vy + Time_step * ay;
 
             speed_check = vx;
-            Debug.Log(((vx)));
+            Debug.Log(((speed_check)));
 
             if (vx < 0){
                 vx = 0;
             }
                  
-          
 
             px = px + Time_step * vx;
-            //Debug.Log(px);
             py = py + Time_step * vy;
 
-          
-            
 
-
-         
-
-
-
-
-            //Debug.Log(a);
-
-
-            //Force
-            //  Force = Force + Friction * 0.01f; //test to see if the deacceleration works (It does)
-            // Debug.Log(Force);
-            // Moves the ball on z-axis
-            //  transform.Translate(0, 0, Force * Time.fixedDeltaTime, Space.World);
             transform.position = new Vector3(py, 0.11f, px);
 
 
-            //v = v0 - Fric_cof * g * t;
-
-
-            //Force
-
-
         }
-
-
-
-
-
 
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -194,11 +182,8 @@ public class Curling : MonoBehaviour
             SideCamera.enabled = !SideCamera.enabled;
         }
 
-     
-      
-
-
     }
+
     //Funktioner som hanterar Settingsmenyn
     public void AdjustForce(float newForce)
     {
@@ -209,4 +194,34 @@ public class Curling : MonoBehaviour
         holdingBall = Start;
     }
 
+    //Lägger till en ny sten
+    private void spawnStone()
+    {
+        //Skapar en klon av stenen
+        GameObject a = Instantiate(StonePrefab) as GameObject;
+        a.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Ny sten skapad");
+        //Ändrar kameran så den följer den nya stenen
+        referenceObject = GameObject.FindGameObjectWithTag("MainCamera");
+        referenceScript = referenceObject.GetComponent<Follow_Script>();
+        referenceScript.Ball = a;
+
+
+    }
+    // Update is called once per frame
+    IEnumerator StartStone()
+    {
+        while (Spawner)
+        {
+            //väntar "respawn" antal sekunder innan nya stenen skapas
+            yield return new WaitForSeconds(respawn);
+            spawnStone();
+
+        }
+
+    }
 }
+
+
+
+
