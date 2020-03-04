@@ -27,6 +27,7 @@ public class Curling : MonoBehaviour
     private float Friction;
     private float counter = 0;
     private float radius = 0.105f;
+    public static float Angle = 0;
 
     private float Time_step = 0.02f;
     private float ax = 0.00000f;
@@ -36,16 +37,16 @@ public class Curling : MonoBehaviour
     private float px=0.0f;
     private float py = 0.0f;
     public float speed_check = 0.0f;
-    private static float inAngle = 0*5*0.0174532925f;
+    private static float inAngle;
 
 
 
 
-   private float iforcex = Force* Mathf.Cos(inAngle);
-    private float iforcey = Force* Mathf.Sin(inAngle);
+    private float iforcex;
+    private float iforcey;
 
-   private float  anglex = Mathf.Cos(inAngle);
-    private float angley = Mathf.Sin(inAngle);
+    private float anglex;
+    private float angley;
 
     private float frictionx ;
     private float frictiony;
@@ -93,6 +94,14 @@ public class Curling : MonoBehaviour
         //Check if grounded
         isGrounded = Physics.CheckSphere(Groundcheck.position, groundDistance, groundMask);
 
+        iforcex = Force * Mathf.Cos(inAngle);
+        iforcey = Force * Mathf.Sin(inAngle);
+
+        inAngle = Angle * 5 * 0.0174532925f;
+
+        anglex = Mathf.Cos(inAngle);
+        angley = Mathf.Sin(inAngle);
+
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -131,6 +140,8 @@ public class Curling : MonoBehaviour
             Fric_cof = 0.02f;
         }
 
+       
+
 
 
 
@@ -149,7 +160,7 @@ public class Curling : MonoBehaviour
 
             ax = (1 / mass) * (iforcex + frictionx);
             ay = (1 / mass) * (iforcey - frictiony);
-            //Debug.Log(((ax)));
+            
             
 
             vx = vx + Time_step * ax;
@@ -165,6 +176,7 @@ public class Curling : MonoBehaviour
 
             px = px + Time_step * vx;
             py = py + Time_step * vy;
+            Debug.Log(px);
 
 
             transform.position = new Vector3(py, 0.11f, px);
@@ -184,6 +196,10 @@ public class Curling : MonoBehaviour
     public void AdjustForce(float newForce)
     {
         Force = newForce;
+    }
+    public void AdjustAngle(float newAngle)
+    {
+        Angle = newAngle;
     }
     public void StartSimulation(bool Start)
     {
