@@ -60,6 +60,9 @@ public class Curling : MonoBehaviour
     GameObject referenceObject;
     Follow_Script referenceScript;
 
+    GameObject referenceObject2;
+    Brush_Follow referenceScript2;
+
 
 
     Vector3 Velocity;
@@ -166,6 +169,10 @@ public class Curling : MonoBehaviour
 
             transform.position = new Vector3(py, 0.11f, px);
 
+            
+
+
+
 
         }
 
@@ -195,6 +202,12 @@ public class Curling : MonoBehaviour
         referenceScript = referenceObject.GetComponent<Follow_Script>();
         referenceScript.Ball = a;
 
+        referenceObject2 = GameObject.FindGameObjectWithTag("Cylinder");
+        referenceScript2 = referenceObject2.GetComponent<Brush_Follow>();
+        referenceScript2.Ball = a;
+
+        a.layer = 9; 
+
 
     }
     // Update is called once per frame
@@ -209,6 +222,8 @@ public class Curling : MonoBehaviour
         }
 
     }
+
+
 }
 
 

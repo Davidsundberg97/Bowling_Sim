@@ -25,6 +25,7 @@ public class anim : MonoBehaviour
         if (Input.GetKey(KeyCode.B))
         {
             animator.SetBool("Polishing", true);
+            Debug.Log("HejHej");
             
         }
         else
