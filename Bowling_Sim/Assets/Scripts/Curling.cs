@@ -38,11 +38,11 @@ public class Curling : MonoBehaviour
     private float ax = 0.00000f;
     private float ay = 0.0f;
     public float vx = 0.0f;
-    private float vy = 0.0f;
+    public float vy = 0.0f;
     public float px=0.0f;
-    private float py = 0.0f;
+    public float py = 0.0f;
     public float speed_check = 0.0f;
-    private static float inAngle;
+    public  float inAngle;
 
 
 
@@ -97,28 +97,28 @@ public class Curling : MonoBehaviour
     void FixedUpdate()
     {
 
-       
+        inAngle = Angle * 0.0174532925f;
         //Check if grounded
         isGrounded = Physics.CheckSphere(Groundcheck.position, groundDistance, groundMask);
 
         iforcex = Force * Mathf.Cos(inAngle);
         iforcey = Force * Mathf.Sin(inAngle);
 
-        inAngle = Angle * 5 * 0.0174532925f;
+        
 
         anglex = Mathf.Cos(inAngle);
         angley = Mathf.Sin(inAngle);
 
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
 
-            Spawner = true;
-        }
-        else
-        {
-            Spawner = false;
-        }
+        //    Spawner = true;
+        //}
+        //else
+        //{
+        //    Spawner = false;
+        //}
         StartCoroutine(StartStone());
 
 
@@ -223,25 +223,27 @@ public class Curling : MonoBehaviour
 
 
             ax = (1 / mass) * (iforcex + frictionx);
-            ay = (1 / mass) * (iforcey - frictiony);
+            ay = (1 / mass) * (iforcey + frictiony);
+
+            
 
 
 
             vx = vx + Time_step * ax;
             vy = vy + Time_step * ay;
 
-            speed_check = vx;
-            // Debug.Log(((speed_check)));
 
             if (vx < 0)
             {
                 vx = 0;
+                vy = 0;
             }
 
 
             px = px + Time_step * vx;
             py = py + Time_step * vy;
             //Debug.Log(px);
+            //Debug.Log(py);
 
 
             transform.position = new Vector3(py, 0.11f, px);

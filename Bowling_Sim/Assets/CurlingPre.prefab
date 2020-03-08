@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 912456402760711343}
   - component: {fileID: 912456402760711330}
   m_Layer: 9
-  m_Name: Curling
+  m_Name: CurlingPre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,8 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739706f6f49a23e4b83f256274aba2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StonePrefab: {fileID: 800414217828935589, guid: a4fb66eaebd550243896743abefd0940,
-    type: 3}
+  StonePrefab: {fileID: 912456402760711328}
   respawn: 0.1
   Spawner: 0
   x2: 14
@@ -178,6 +177,12 @@ MonoBehaviour:
   vx_off_collided_stone: 0
   collided: 0
   other2: {fileID: 0}
+  vx_efter: 0
+  vx2_efter: 0
+  x1: 0
+  x2: 0
+  v1: 0
+  v2: 0
 --- !u!1 &9189699861317995942
 GameObject:
   m_ObjectHideFlags: 0

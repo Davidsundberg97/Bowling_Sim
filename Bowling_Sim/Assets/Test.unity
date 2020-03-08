@@ -189,7 +189,7 @@ Transform:
   - {fileID: 1527172514}
   - {fileID: 1415719674}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &59417846
 GameObject:
@@ -645,7 +645,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &208083181
 MonoBehaviour:
@@ -770,6 +770,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274292485}
   m_CullTransparentMesh: 0
+--- !u!1001 &307121855
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 814f029a117e6a6429e2620f4ef81815,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.8924854
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 814f029a117e6a6429e2620f4ef81815,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.06396426
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 814f029a117e6a6429e2620f4ef81815,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04652071
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 814f029a117e6a6429e2620f4ef81815,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 814f029a117e6a6429e2620f4ef81815,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 814f029a117e6a6429e2620f4ef81815,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 814f029a117e6a6429e2620f4ef81815,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 814f029a117e6a6429e2620f4ef81815,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 814f029a117e6a6429e2620f4ef81815,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 814f029a117e6a6429e2620f4ef81815,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 814f029a117e6a6429e2620f4ef81815,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 814f029a117e6a6429e2620f4ef81815,
+        type: 3}
+      propertyPath: m_Name
+      value: curling_stone
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 814f029a117e6a6429e2620f4ef81815, type: 3}
 --- !u!1 &358936560
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +929,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &594428978
 GameObject:
@@ -1381,6 +1450,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1451,7 +1521,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 10.4, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -1468,6 +1538,22 @@ MonoBehaviour:
   Ball: {fileID: 8296172667467654276}
   BallCamera: {fileID: 963194227}
   SideCamera: {fileID: 208083179}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd176017a9fe74428d4c6d6561ef78c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StonePrefab: {fileID: 912456402760711328, guid: 203f7881d4cb74a448fc6a867bebca0e,
+    type: 3}
+  respawn: 0.1
+  Spawner: 0
 --- !u!1 &1023626699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,7 +1719,7 @@ RectTransform:
   m_Children:
   - {fileID: 1930902718}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1789,7 +1875,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1415719673
 GameObject:
@@ -2249,7 +2335,7 @@ Transform:
   - {fileID: 705507995}
   - {fileID: 2032525729}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1729010329
 GameObject:
@@ -2470,8 +2556,11 @@ MonoBehaviour:
   Gravity: -9.82
   mass: 20
   vx: 0
+  vy: 0
   px: 0
+  py: 0
   speed_check: 0
+  inAngle: 0
 --- !u!135 &1763059677
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2806,7 +2895,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ac9a339b39a5b47489bd4b14f95b8174,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ac9a339b39a5b47489bd4b14f95b8174,
         type: 3}
@@ -3160,7 +3249,7 @@ Transform:
   m_Children:
   - {fileID: 1729010336}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2019685743
 MonoBehaviour:
