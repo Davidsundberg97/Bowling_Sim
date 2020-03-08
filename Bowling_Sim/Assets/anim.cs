@@ -24,13 +24,13 @@ public class anim : MonoBehaviour
         //If V = 0 animation should not be possible and object should be destroyed
         if (Input.GetKey(KeyCode.B))
         {
-            animator.SetBool("Polishing", true);
-            Debug.Log("HejHej");
+            animator.SetBool("Brushing", true);
+            Debug.Log("BrushBrsuh");
             
         }
         else
         {
-            animator.SetBool("Polishing", false);
+            animator.SetBool("Brushing", false);
         }
     }
 }
