@@ -837,8 +837,76 @@ PrefabInstance:
       propertyPath: m_Name
       value: curling_stone
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 814f029a117e6a6429e2620f4ef81815,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 814f029a117e6a6429e2620f4ef81815, type: 3}
+--- !u!1 &307121856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 814f029a117e6a6429e2620f4ef81815,
+    type: 3}
+  m_PrefabInstance: {fileID: 307121855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &307121857 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 814f029a117e6a6429e2620f4ef81815,
+    type: 3}
+  m_PrefabInstance: {fileID: 307121855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &307121858
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307121856}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 0.0031
+  m_Radius: 0.0016
+  m_SlopeLimit: 45
+  m_StepOffset: 0
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &307121859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307121856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739706f6f49a23e4b83f256274aba2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StonePrefab: {fileID: 307121856}
+  respawn: 1
+  Spawner: 0
+  x2: 14
+  x1: 0
+  controller: {fileID: 307121858}
+  Groundcheck: {fileID: 1935228154}
+  Brush: {fileID: 0}
+  groundDistance: 0.4
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  collided: 0
+  Gravity: 9.82
+  mass: 20
+  vx: 0
+  vy: 0
+  px: 0
+  py: 0
+  speed_check: 0
+  inAngle: 0
 --- !u!1 &358936560
 GameObject:
   m_ObjectHideFlags: 0
@@ -2975,6 +3043,36 @@ RectTransform:
   m_AnchoredPosition: {x: -63, y: -33}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1935228153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1935228154}
+  m_Layer: 9
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1935228154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935228153}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.01, y: 0.06503573, z: -0.04652071}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_Children: []
+  m_Father: {fileID: 307121857}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1999464674
 GameObject:
   m_ObjectHideFlags: 0
