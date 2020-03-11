@@ -99,7 +99,7 @@ public class Curling : MonoBehaviour
 
         inAngle = Angle * 0.0174532925f;
         //Check if grounded
-        isGrounded = Physics.CheckSphere(Groundcheck.position, groundDistance, groundMask);
+       // isGrounded = Physics.CheckSphere(Groundcheck.position, groundDistance, groundMask);
 
         iforcex = Force * Mathf.Cos(inAngle);
         iforcey = Force * Mathf.Sin(inAngle);

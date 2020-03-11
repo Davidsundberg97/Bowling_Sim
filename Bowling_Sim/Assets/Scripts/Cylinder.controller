@@ -114,7 +114,7 @@ AnimatorState:
   m_PrefabAsset: {fileID: 0}
   m_Name: Brush
   m_Speed: 1
-  m_CycleOffset: 0
+  m_CycleOffset: 1
   m_Transitions:
   - {fileID: -4564734754245506864}
   m_StateMachineBehaviours: []

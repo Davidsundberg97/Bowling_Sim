@@ -37,7 +37,7 @@ public class DeployStones : MonoBehaviour
     private void spawnStone()
     {
         GameObject a = Instantiate(StonePrefab) as GameObject;
-        a.transform.position = new Vector3(0, 0, 0);
+        a.transform.position = new Vector3(0, 2, 0);
         Debug.Log("hello");
 
         //Ändrar kameran så den följer den nya stenen
@@ -45,7 +45,7 @@ public class DeployStones : MonoBehaviour
         referenceScript = referenceObject.GetComponent<Follow_Script>();
         referenceScript.Ball = a;
 
-        referenceObject2 = GameObject.FindGameObjectWithTag("Cylinder");
+        referenceObject2 = GameObject.FindGameObjectWithTag("BrushMover");
         referenceScript2 = referenceObject2.GetComponent<Brush_Follow>();
         referenceScript2.Ball = a;
 

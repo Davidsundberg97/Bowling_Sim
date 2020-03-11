@@ -15,7 +15,7 @@ public class anim : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         ////måste sätta vx o px till static om de ska funka
         //position = Curling.px;
@@ -24,13 +24,13 @@ public class anim : MonoBehaviour
         //If V = 0 animation should not be possible and object should be destroyed
         if (Input.GetKey(KeyCode.B))
         {
-            animator.SetBool("Brushing", true);
+            animator.SetBool("Polishing", true);
             Debug.Log("BrushBrsuh");
             
         }
         else
         {
-            animator.SetBool("Brushing", false);
+            animator.SetBool("Polishing", false);
         }
     }
 }

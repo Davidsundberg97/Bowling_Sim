@@ -6,7 +6,6 @@ public class Brush_Follow : MonoBehaviour
 {
 
     public GameObject Ball;
-    public Animator animator;
     Vector3 offset;
     // Start is called before the first frame update
     void Start()
