@@ -213,6 +213,7 @@ public class Curling : MonoBehaviour
                 
             }
 
+            Debug.Log(px);
 
             frictionx = anglex * (mass * Gravity * Fric_cof);
             frictiony = angley * (mass * Gravity * Fric_cof);
@@ -222,8 +223,8 @@ public class Curling : MonoBehaviour
             //EULER//
 
 
-            ax = (1 / mass) * (iforcex + frictionx);
-            ay = (1 / mass) * (iforcey + frictiony);
+            ax = (1 / mass) * (iforcex - frictionx);
+            ay = (1 / mass) * (iforcey - frictiony);
 
             
 
