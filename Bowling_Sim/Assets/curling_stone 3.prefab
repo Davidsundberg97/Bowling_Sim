@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2448627235737882323
+--- !u!1 &2409510102706456514
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2448627235737882320}
+  - component: {fileID: 2409510102706456513}
   m_Layer: 9
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -16,21 +16,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2448627235737882320
+--- !u!4 &2409510102706456513
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2448627235737882323}
+  m_GameObject: {fileID: 2409510102706456514}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.01, y: 0.06503573, z: -0.04652071}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
-  m_Father: {fileID: 7242335421471790991}
+  m_Father: {fileID: 7208847257545105054}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4488254829161346556
+--- !u!1 &4522302524281044205
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,9 +38,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5001827523716719571}
-  - component: {fileID: 5390961184951564557}
-  - component: {fileID: 140007555188674392}
+  - component: {fileID: 5035312947453258434}
+  - component: {fileID: 5358020706766204956}
+  - component: {fileID: 106505235218564681}
   m_Layer: 9
   m_Name: 11720_Curling_Stone_v1_L3.001
   m_TagString: Untagged
@@ -48,35 +48,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5001827523716719571
+--- !u!4 &5035312947453258434
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4488254829161346556}
+  m_GameObject: {fileID: 4522302524281044205}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1.6559889, y: 1.6558862, z: 1.195969}
   m_Children: []
-  m_Father: {fileID: 7242335421471790991}
+  m_Father: {fileID: 7208847257545105054}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5390961184951564557
+--- !u!33 &5358020706766204956
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4488254829161346556}
+  m_GameObject: {fileID: 4522302524281044205}
   m_Mesh: {fileID: 6083345254586039312, guid: 814f029a117e6a6429e2620f4ef81815, type: 3}
---- !u!23 &140007555188674392
+--- !u!23 &106505235218564681
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4488254829161346556}
+  m_GameObject: {fileID: 4522302524281044205}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -109,7 +109,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &4859336041864587733
+--- !u!1 &4892278847990341828
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,9 +117,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2598419960038219998}
-  - component: {fileID: 1635325690932151944}
-  - component: {fileID: 4295019793033304162}
+  - component: {fileID: 2631361108171336143}
+  - component: {fileID: 1601823370827829145}
+  - component: {fileID: 4256447476670517619}
   m_Layer: 9
   m_Name: 11720_Curling_Stone_v1_L3
   m_TagString: Untagged
@@ -127,35 +127,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2598419960038219998
+--- !u!4 &2631361108171336143
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4859336041864587733}
+  m_GameObject: {fileID: 4892278847990341828}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
-  m_Father: {fileID: 7242335421471790991}
+  m_Father: {fileID: 7208847257545105054}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1635325690932151944
+--- !u!33 &1601823370827829145
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4859336041864587733}
+  m_GameObject: {fileID: 4892278847990341828}
   m_Mesh: {fileID: 5482328131137679703, guid: 814f029a117e6a6429e2620f4ef81815, type: 3}
---- !u!23 &4295019793033304162
+--- !u!23 &4256447476670517619
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4859336041864587733}
+  m_GameObject: {fileID: 4892278847990341828}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -188,7 +188,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &5970269426343798172
+--- !u!1 &5931700004821445773
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,41 +196,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7242335421471790991}
-  - component: {fileID: 2448627235185736936}
-  - component: {fileID: 2448627235185736937}
-  - component: {fileID: 2510764242750944206}
+  - component: {fileID: 7208847257545105054}
+  - component: {fileID: 2409510104335382009}
+  - component: {fileID: 2409510104335382008}
   m_Layer: 9
-  m_Name: curling_stone 1
+  m_Name: curling_stone 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7242335421471790991
+--- !u!4 &7208847257545105054
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5970269426343798172}
+  m_GameObject: {fileID: 5931700004821445773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.129, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2598419960038219998}
-  - {fileID: 5001827523716719571}
-  - {fileID: 2448627235737882320}
+  - {fileID: 2631361108171336143}
+  - {fileID: 5035312947453258434}
+  - {fileID: 2409510102706456513}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &2448627235185736936
+--- !u!143 &2409510104335382009
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5970269426343798172}
+  m_GameObject: {fileID: 5931700004821445773}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -242,19 +241,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2448627235185736937
+--- !u!114 &2409510104335382008
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5970269426343798172}
+  m_GameObject: {fileID: 5931700004821445773}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 739706f6f49a23e4b83f256274aba2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StonePrefab: {fileID: 5970269426343798172}
+  StonePrefab: {fileID: 5931700004821445773}
   respawn: 1
   Spawner: 0
   x2: 14
@@ -269,8 +268,8 @@ MonoBehaviour:
   radToDegrees: 57.29578
   maxAngVel: 0
   rotForce: 0
-  controller: {fileID: 2448627235185736936}
-  Groundcheck: {fileID: 2448627235737882320}
+  controller: {fileID: 2409510104335382009}
+  Groundcheck: {fileID: 2409510102706456513}
   Brush: {fileID: 0}
   groundDistance: 0.4
   groundMask:
@@ -285,34 +284,3 @@ MonoBehaviour:
   py: 0
   speed_check: 0
   inAngle: 0
---- !u!114 &2510764242750944206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5970269426343798172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e86dd1cd7856193419ec30b154e0e7c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vx_off_current_stone: 0
-  vx_off_collided_stone: 0
-  collided: 0
-  other2: {fileID: 0}
-  vx_efter: 0
-  vx2_efter: 0
-  vy_efter: 0
-  vy2_efter: 0
-  x1: 0
-  x2: 0
-  y1: 0
-  y2: 0
-  v1: 0
-  v2: 0
-  v1x: 0
-  v2x: 0
-  v1y: 0
-  v2y: 0
-  counter: 0
