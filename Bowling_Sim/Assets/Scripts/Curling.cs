@@ -31,7 +31,7 @@ public class Curling : MonoBehaviour
     public float mass = 20f; //Kg
     private float Friction;
     private float counter = 0;
-    private float radius = 0.105f;
+    private float radius = 0.16f;
     public static float Angle = 0;
 
     private float Time_step = 0.02f;
@@ -43,6 +43,19 @@ public class Curling : MonoBehaviour
     private float py = 0.0f;
     public float speed_check = 0.0f;
     private static float inAngle;
+
+    //Rotation
+    public float angAcc = 0f;
+    public float angVel = 0f;
+    public float theta = 0f;
+    public float inertia = 0f;
+    public float rotFriction = 0f;
+    public float fw = 5f;
+    public float torque = 0f;
+    public float radToDegrees = 57.2957795f;
+    public float maxAngVel = 0;
+
+    //End Rotation
 
 
 
@@ -80,16 +93,16 @@ public class Curling : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-  
 
-        
+
+
 
         //Calculate alpha
         alpha = (5 / 2) * (Fric_cof * -Gravity) / radius;
+        inertia  = mass*(radius*radius);
 
-      
 
-        
+
     }
 
 
@@ -97,14 +110,13 @@ public class Curling : MonoBehaviour
     void FixedUpdate()
     {
 
-       
+
         //Check if grounded
         isGrounded = Physics.CheckSphere(Groundcheck.position, groundDistance, groundMask);
+        inAngle = Angle * 0.0174532925f;
 
         iforcex = Force * Mathf.Cos(inAngle);
         iforcey = Force * Mathf.Sin(inAngle);
-
-        inAngle = Angle * 5 * 0.0174532925f;
 
         anglex = Mathf.Cos(inAngle);
         angley = Mathf.Sin(inAngle);
@@ -126,6 +138,7 @@ public class Curling : MonoBehaviour
         {
             iforcex = 0;
             iforcey = 0;
+            Force = 0;
         }
 
 
@@ -149,69 +162,14 @@ public class Curling : MonoBehaviour
             Fric_cof = 0.02f;
         }
 
-       
+
 
 
 
 
         if (holdingBall == false)
         {
-            //------------------------Collision----------------------------------//
-            if (collided == true) //kollar om utträkningar för kollision ska göras
-            {
-             //   Debug.Log("Collision check");
 
-
-             //   float frictionx1 = (mass * Gravity * Fric_cof);
-
-             //   float v1 = vx; //v1=sqrt(v1x^2+v1y^2);
-
-             //   float v2 = 0f;
-
-             //   float v1x_efter = v2 * Mathf.Cos(0) * Mathf.Cos(0) + (v1 * Mathf.Sin(inAngle) * Mathf.Cos(0 + (Mathf.PI / 2)));
-
-             //   float v2x_efter = v1 * Mathf.Cos(0) * Mathf.Cos(0) + v2 * Mathf.Sin(0) * Mathf.Cos(Mathf.PI / 2);
-
-             //  float a1x = (1 / mass) * (-frictionx1 * v1x_efter);
-                
-
-             //float   a2x = (1 / mass) * (-frictionx1 * v2x_efter);
-
-
-
-             //   v1x_efter = v1x_efter + Time_step * a1x;
-                
-             //   v2x_efter = v2x_efter + Time_step * a2x;
-
-             //   x1 = px + Time_step * v1x_efter;
-                
-
-             //   x2 = x2 + Time_step * v2x_efter;
-
-             //   transform.position = new Vector3(0, 0.11f, x1);
-             //   GameObject stone2 = GetComponent<Collision>().other2; //kan bli error pågrund av Fixedupdate skre förre OnTrigger i Collision
-             //   stone2.transform.position = new Vector3(0, 0.11f, x2);
-
-
-
-
-
-             //   //räkna ut v1x efter och v2x (Kan göras i Collision ?) använd dem 1 gång
-             //   //a1x = (1/mass)*(-frictionx*v1x) och a2x
-
-             //   //v1x = v1x +Time_step * a1x;
-             //   //Kolla så den att kraften inte gör hastigheten ändrar sig (if(vx<0) vx=0)
-
-             //   //px1 = px1 + Time_Step * v1;
-             //   //px2 = px2 + Time_Step * v2;
-
-             //   //send px1 and px2 to collision and add them to other.transform.position(px2,py2,0);
-            }
-            else //-------------------------Before Collision-------------------//
-            {
-
-                
-            }
 
 
             frictionx = anglex * (mass * Gravity * Fric_cof);
@@ -223,8 +181,7 @@ public class Curling : MonoBehaviour
 
 
             ax = (1 / mass) * (iforcex + frictionx);
-            ay = (1 / mass) * (iforcey - frictiony);
-
+            ay = (1 / mass) * (iforcey + frictiony + rotFriction);
 
 
             vx = vx + Time_step * ax;
@@ -236,6 +193,7 @@ public class Curling : MonoBehaviour
             if (vx < 0)
             {
                 vx = 0;
+                vy = 0;
             }
 
 
@@ -243,9 +201,28 @@ public class Curling : MonoBehaviour
             py = py + Time_step * vy;
             //Debug.Log(px);
 
+            //Rotation
+
+            torque = ((Force*radius - fw*angVel));
+
+            angAcc = torque/inertia;
+            angVel = angVel + angAcc*Time_step;
+            theta = theta + angVel*Time_step;
+
+            if(angVel >= maxAngVel){
+            maxAngVel = angVel/(2*Mathf.PI);
+            Debug.Log(maxAngVel/(2*Mathf.PI));
+            }
+
+            if(px > 8 && vx < 1.5){
+             rotFriction = -maxAngVel*fw;
+            }
+            if(px > 8 && vx< 0.5){
+             rotFriction = 0;
+           }
 
             transform.position = new Vector3(py, 0.11f, px);
-
+            transform.RotateAround(transform.position, transform.forward, Time_step *angAcc*radToDegrees);
 
 
 
@@ -253,7 +230,7 @@ public class Curling : MonoBehaviour
 
         }
 
-      
+
 
     }
 
@@ -289,7 +266,7 @@ public class Curling : MonoBehaviour
         referenceScript2 = referenceObject2.GetComponent<Brush_Follow>();
         referenceScript2.Ball = a;
 
-        a.layer = 9; 
+        a.layer = 9;
 
 
     }
@@ -308,7 +285,3 @@ public class Curling : MonoBehaviour
 
 
 }
-
-
-
-
