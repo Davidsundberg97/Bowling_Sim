@@ -189,7 +189,7 @@ public class Curling : MonoBehaviour
 
 
             ax = (1 / mass) * (iforcex - frictionx);
-            ay = (1 / mass) * (iforcey + frictiony + rotFriction); //
+            ay = (1 / mass) * (iforcey + frictiony ); //+ rotFriction
 
             Debug.Log(ax);
 
